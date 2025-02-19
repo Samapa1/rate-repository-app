@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
@@ -18,7 +18,7 @@ const Main = () => {
   return (
     <View style={styles.container}>
         <AppBar></AppBar>
-        <View style={styles.flexItemB}>
+        <View id='repoList' style={styles.flexItemB}>
             <RepositoryList/>
         </View>
     </View>

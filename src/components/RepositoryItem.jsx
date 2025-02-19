@@ -31,11 +31,13 @@ const RepositoryItem = props => {
         flexItemA: {
             flexGrow: 0,
             flexShrink: 0,
+            alignItems: 'flex-start',
+            gap: 10
         },
         flexItemB: {
-            flexGrow: 0,
-            flexShrink: 0,
-            alignSelf: 'center'
+            flexGrow: 1,
+            alignItems: 'center',
+            gap: 10
         }
     })
 
@@ -58,46 +60,46 @@ const RepositoryItem = props => {
     const showReviews = defineCounts(reviews)
 
   return (
-    <View>
-    <View style={styles.container}>
-        <View style= {styles.flexItemA}>
-            <Image
+    <View id='repoItem'>
+        <View style={styles.container}>
+            <View style= {styles.flexItemA}>
+                <Image
+                    style={styles.imageSize}
+                    source={{
+                        uri: props.item.ownerAvatarUrl}}
+                />
+            </View>
+            {/* <Image
                 style={styles.imageSize}
                 source={{
-                    uri: 'https://avatars1.githubusercontent.com/u/4223?v=4'}}
-            />
-        </View>
-        {/* <Image
-            style={styles.imageSize}
-            source={{
-            uri: props.ownerAvatarUrl}}
-        /> */}
-        <View style= {styles.flexItemA}>
-            <Text color="textPrimary" fontWeight="bold">{props.item.fullName}</Text>
-            <Text color="textTertiary">{props.item.description}</Text>
-            <View style= {theme.box}>
-                <Text color="textSecondary">{props.item.language}</Text>
+                uri: props.ownerAvatarUrl}}
+            /> */}
+            <View style= {styles.flexItemA}>
+                <Text color="textPrimary" fontWeight="bold">{props.item.fullName}</Text>
+                <Text color="textTertiary">{props.item.description}</Text>
+                <View style= {theme.box}>
+                    <Text color="textSecondary">{props.item.language}</Text>
+                </View>
             </View>
         </View>
-    </View>
-     <View style={styles.container2}>
-        <View style= {styles.flexItemA}>
-            <Text color="textPrimary" fontWeight="bold">{showStars}</Text>
-            <Text color="textTertiary">Stars</Text>
+        <View style={styles.container2}>
+            <View style= {styles.flexItemB}>
+                <Text color="textPrimary" fontWeight="bold">{showStars}</Text>
+                <Text color="textTertiary">Stars</Text>
+            </View>
+            <View style= {styles.flexItemB}>
+                <Text color="textPrimary" fontWeight="bold"> {showForks}</Text>
+                <Text color="textTertiary">Forks</Text>
+            </View>
+            <View style= {styles.flexItemB}>
+                <Text color="textPrimary" fontWeight="bold">{showReviews}</Text>
+                <Text color="textTertiary">Reviews</Text>
+            </View>
+            <View style= {styles.flexItemB}>
+                <Text color="textPrimary" fontWeight="bold">{props.item.ratingAverage}</Text>
+                <Text color="textTertiary">Rating</Text>
+            </View>
         </View>
-        <View style= {styles.flexItemA}>
-            <Text color="textPrimary" fontWeight="bold"> {showForks}</Text>
-            <Text color="textTertiary">Forks</Text>
-        </View>
-        <View style= {styles.flexItemB}>
-            <Text color="textPrimary" fontWeight="bold">{showReviews}</Text>
-            <Text color="textTertiary">Reviews</Text>
-        </View>
-        <View style= {styles.flexItemA}>
-            <Text color="textPrimary" fontWeight="bold">{props.item.ratingAverage}</Text>
-            <Text color="textTertiary">Rating</Text>
-        </View>
-    </View>
     </View>
 );
 };
