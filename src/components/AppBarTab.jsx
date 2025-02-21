@@ -1,11 +1,12 @@
-import { View, StyleSheet, Pressable } from 'react-native';
+import { View } from 'react-native';
+import { Link } from "react-router-native";
 import Text from './Text';
 
 const AppBarTab = (props) => {
     return (
-        <Pressable onPress={() => console.log("you pressed!")}>
-        <Text fontWeight="bold" color="textSecondary">Repositories</Text>
-        </Pressable>
+        <View>
+            <Link to= {props.route}><Text fontWeight="bold" color= 'textSecondary'>{props.name}</Text></Link>
+        </View>
     )
 }
 
