@@ -1,6 +1,5 @@
 import { View, Image, StyleSheet } from 'react-native';
 import Text from './Text';
-
 import theme from '../theme';
 
 const RepositoryItem = props => {
@@ -10,7 +9,6 @@ const RepositoryItem = props => {
             height: 50,
         },
         container: {
-            // marginTop: Constants.statusBarHeight,
             margin: 20,
             flexDirection: 'row',
             justifyContent: 'flex-start',
@@ -19,7 +17,6 @@ const RepositoryItem = props => {
             flexShrink: 1,
         },
         container2: {
-            // marginTop: Constants.statusBarHeight,
             margin: 20,
             paddingLeft: 20,
             flexDirection: 'row',
@@ -69,11 +66,6 @@ const RepositoryItem = props => {
                         uri: props.item.ownerAvatarUrl}}
                 />
             </View>
-            {/* <Image
-                style={styles.imageSize}
-                source={{
-                uri: props.ownerAvatarUrl}}
-            /> */}
             <View style= {styles.flexItemA}>
                 <Text color="textPrimary" fontWeight="bold">{props.item.fullName}</Text>
                 <Text color="textTertiary">{props.item.description}</Text>
