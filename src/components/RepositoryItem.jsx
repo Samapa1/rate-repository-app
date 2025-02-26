@@ -27,7 +27,7 @@ const RepositoryItem = props => {
         },
         flexItemA: {
             flexGrow: 0,
-            flexShrink: 0,
+            flexShrink: 1,
             alignItems: 'flex-start',
             gap: 10
         },
