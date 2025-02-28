@@ -1,5 +1,6 @@
 import Text from './Text';
 import { TextInput, Pressable, View, StyleSheet } from 'react-native';
+import { useNavigate } from "react-router";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -26,11 +27,13 @@ const validationSchema = yup.object().shape({
         input: {
           padding: 10,
           borderWidth: 1,
+          borderRadius: 3,
           color: theme.colors.textTertiary
         },
         inputError: {
             padding: 10,
             borderWidth: 1,
+            borderRadius: 3,
             borderColor: '#d73a4a',
             color:  '#d73a4a'
           },
@@ -102,17 +105,9 @@ const validationSchema = yup.object().shape({
         )
     }
 
-// const SignIn = () => {
-//     const onSubmit = values => {
-//         console.log("onSubmit")
-//         console.log(values)
-//     }
-//     return <LogInForm onSubmit={onSubmit} />;
-// };
-
-
 const SignIn = () => {
     const [signIn] = useSignIn();
+    let navigate = useNavigate();
   
     const onSubmit = async (values) => {
       const { username, password } = values;
@@ -120,8 +115,8 @@ const SignIn = () => {
       try {
         console.log(username)
         const { data } = await signIn({ username, password });
-        console.log("Result")
         console.log(data);
+        navigate("/")
       } catch (e) {
         console.log(e);
       }
