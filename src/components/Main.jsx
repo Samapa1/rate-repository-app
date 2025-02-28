@@ -4,10 +4,11 @@ import { Route, Routes, Navigate } from 'react-router-native';
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
+import SignOut from './SignOut';
+
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: Constants.statusBarHeight,
     flexGrow: 1,
     flexShrink: 1,
   },
@@ -31,6 +32,11 @@ const Main = () => {
           <SignIn/>
           </View>
           } />
+         <Route path="/signout" element={
+          <View style={styles.flexItemB}>
+          <SignOut/>
+          </View>
+          } />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </View>
@@ -39,16 +45,5 @@ const Main = () => {
 
 export default Main;
 
-
-// const Main = () => {
-//   return (
-//     <View style={styles.container}>
-//         <AppBar></AppBar>
-//         <View id='repoList' style={styles.flexItemB}>
-//             <RepositoryList/>
-//         </View>
-//     </View>
-//   );
-// };
 
 

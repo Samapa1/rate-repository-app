@@ -3,6 +3,7 @@ import Constants from 'expo-constants';
 
 import AppBarTab from './AppBarTab';
 import theme from '../theme';
+import useUserData from '../hooks/useUserData';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,16 +23,25 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const { me } = useUserData();
+  console.log(me)
+  
   return (
     <View>
       <View style={styles.container}>
         <ScrollView horizontal>
           <View style={styles.flexItemA}>
-              <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
+            <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
           </View>
-          <View style={styles.flexItemA}>
-            <AppBarTab name= {'Log in'} route={'/signin'}></AppBarTab>
-          </View>
+          {me ? 
+            <View style={styles.flexItemA}>
+              <AppBarTab name= {'Log out'} route={'/signout'}></AppBarTab>
+            </View>
+          : 
+            <View style={styles.flexItemA}>
+              <AppBarTab name= {'Log in'} route={'/signin'}></AppBarTab>
+            </View>
+          }
         </ScrollView>
       </View>
     </View>

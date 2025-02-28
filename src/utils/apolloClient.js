@@ -10,7 +10,6 @@ const createApolloClient = (authStorage) => {
   const authLink = setContext(async (_, { headers }) => {
     try {
       const accessToken = await authStorage.getAccessToken();
-      console.log(accessToken)
       return {
         headers: {
           ...headers,
@@ -29,11 +28,5 @@ const createApolloClient = (authStorage) => {
     cache: new InMemoryCache(),
   });
 };
-// const createApolloClient = () => {
-//   return new ApolloClient({
-//     uri: Constants.expoConfig.extra.APOLLO_URI,
-//     cache: new InMemoryCache(),
-//   });
-// };
 
 export default createApolloClient;
