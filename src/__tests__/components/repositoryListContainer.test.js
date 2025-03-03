@@ -71,8 +71,6 @@ describe('RepositoryList', () => {
         within(secondRepositoryItem).getByText('72');
         within(secondRepositoryItem).getByText('3');
     
-    
-
         // expect something from the first and the second repository item
         // Add your test code here
       });
