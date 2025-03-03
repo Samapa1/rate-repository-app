@@ -57,7 +57,7 @@ const RepositoryItem = props => {
     const showReviews = defineCounts(reviews)
 
   return (
-    <View id='repoItem'>
+    <View testID="repositoryItem">
         <View style={styles.container}>
             <View style= {styles.flexItemA}>
                 <Image

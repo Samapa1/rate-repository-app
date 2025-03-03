@@ -3,18 +3,19 @@ import reactNative from 'eslint-plugin-react-native';
 import babelParser from "@babel/eslint-parser";
 import js from "@eslint/js";
 import globals from "globals";
+import jest from 'eslint-plugin-jest'
 
 export default [
   js.configs.recommended,
+  jest.configs.recommended,
   {
       rules: {
         "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
       },
       plugins: {
         react, 
         reactNative
-        
       },
       settings: {
         "react": {
