@@ -12,11 +12,6 @@ const theme = {
       body: 14,
       subheading: 16,
     },
-    // fonts: Platform.select({
-    //   android: 'Roboto',
-    //   ios: 'Arial',
-    //   default: 'System',
-    // }),
     fonts: {
       main: Platform.select({
         android: 'Roboto',

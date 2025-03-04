@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 
+import SingleRepository from './SingleRepository';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,6 +27,11 @@ const Main = () => {
           <View id='repoList' style={styles.flexItemB}>
           <RepositoryList/>
           </View>
+          } />
+        <Route path="/:id" element={ 
+            <View>
+            <SingleRepository/>
+            </View>
           } />
         <Route path="/signin" element={
           <View style={styles.flexItemB}>
