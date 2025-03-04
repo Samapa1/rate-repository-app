@@ -54,7 +54,6 @@ describe('RepositoryList', () => {
         const repositoryItems = screen.getAllByTestId('repositoryItem');
         const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
      
-        // expect(firstRepositoryItem).toHaveTextContent('jaredpalmer/formik');
         within(firstRepositoryItem).getByText('jaredpalmer/formik');
         within(firstRepositoryItem).getByText('Build forms in React, without the tears');
         within(firstRepositoryItem).getByText('TypeScript');
@@ -70,9 +69,7 @@ describe('RepositoryList', () => {
         within(secondRepositoryItem).getByText('1.8k');
         within(secondRepositoryItem).getByText('72');
         within(secondRepositoryItem).getByText('3');
-    
-        // expect something from the first and the second repository item
-        // Add your test code here
+  
       });
     });
   });
