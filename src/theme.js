@@ -5,6 +5,7 @@ const theme = {
       textPrimary: '#24292e',
       textSecondary: '#FFFFFF',
       textTertiary: '#586069',
+      textQuaternary: '#0366d6',
       primary: '#0366d6',
       tabBackground: '#24292e'
     },

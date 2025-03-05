@@ -67,7 +67,7 @@ const RepositoryItem = ({ item, showButton }) => {
     const showReviews = defineCounts(reviews)
 
     const  { repository } = useRepository( {id: item.id})
-
+   
     const openUrl = async ( url ) => {
         await Linking.openURL(url)
     }
