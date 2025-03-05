@@ -95,7 +95,7 @@ const SingleRepository = () => {
   let { id } = useParams()
 
   let itemId = id
-    
+  
   const { repositories } = useRepositories();
   const repositoryNodes = repositories
   ? repositories.edges.map(edge => edge.node)
@@ -110,7 +110,7 @@ const SingleRepository = () => {
   : [];
 
   const ItemSeparator = () => <View style={styles.separator} />;
-
+  
   return (
     <FlatList
       data={reviewNodes}

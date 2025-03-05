@@ -34,9 +34,14 @@ const AppBar = () => {
             <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
           </View>
           {me ? 
-            <View style={styles.flexItemA}>
-              <AppBarTab name= {'Log out'} route={'/signout'}></AppBarTab>
-            </View>
+            <View style={styles.container}>
+              <View style={styles.flexItemA}>
+                <AppBarTab name= {'Create a review'} route={'/review'}></AppBarTab>
+              </View>
+              <View style={styles.flexItemA}>
+                <AppBarTab name= {'Log out'} route={'/signout'}></AppBarTab>
+              </View>
+             </View>
           : 
             <View style={styles.flexItemA}>
               <AppBarTab name= {'Log in'} route={'/signin'}></AppBarTab>
