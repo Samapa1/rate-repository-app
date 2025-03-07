@@ -1,8 +1,28 @@
 import { gql } from '@apollo/client';
 
+// export const GET_REPOSITORIES = gql`
+//   query {
+//     repositories {
+//         edges {
+//             node {
+//                 id,
+//                 fullName,
+//                 description,
+//                 language,
+//                 ownerAvatarUrl,
+//                 stargazersCount,
+//                 forksCount,
+//                 reviewCount,
+//                 ratingAverage
+//             }
+//         }
+//     }
+// }
+// `;
+
 export const GET_REPOSITORIES = gql`
-  query {
-    repositories {
+  query($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection) {
+    repositories(orderBy: $orderBy, orderDirection: $orderDirection) {
         edges {
             node {
                 id,
@@ -17,7 +37,7 @@ export const GET_REPOSITORIES = gql`
             }
         }
     }
-}
+  }
 `;
 
 export const GET_REPOSITORY = gql`

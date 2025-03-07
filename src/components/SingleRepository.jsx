@@ -96,7 +96,10 @@ const SingleRepository = () => {
 
   let itemId = id
   
-  const { repositories } = useRepositories();
+  const { repositories } = useRepositories({
+    orderBy: "CREATED_AT", 
+    orderDirection: "DESC"
+  });
   const repositoryNodes = repositories
   ? repositories.edges.map(edge => edge.node)
   : [];
