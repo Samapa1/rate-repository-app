@@ -59,68 +59,71 @@ const RepositoryItem = ({ item, showButton }) => {
         return showCounts
     } 
 
-    const stars = item.stargazersCount
-    const showStars = defineCounts(stars)
-    const forks = item.forksCount
-    const showForks = defineCounts(forks)
-    const reviews = item.reviewCount
-    const showReviews = defineCounts(reviews)
+    if (item) {
 
-    const  { repository } = useRepository( {id: item.id})
-   
-    const openUrl = async ( url ) => {
-        await Linking.openURL(url)
-    }
+        const stars = item.stargazersCount
+        const showStars = defineCounts(stars)
+        const forks = item.forksCount
+        const showForks = defineCounts(forks)
+        const reviews = item.reviewCount
+        const showReviews = defineCounts(reviews)
 
-  return (
-    <View testID="repositoryItem">
-        <View style={styles.container}>
-            <View style= {styles.flexItemA}>
-                <Image
-                    style={styles.imageSize}
-                    source={{
-                        uri: item.ownerAvatarUrl}}
-                />
-            </View>
-            <View style= {styles.flexItemA}>
-                <Text color="textPrimary" fontWeight="bold">{item.fullName}</Text>
-                <Text color="textTertiary">{item.description}</Text>
-                <View style= {theme.box}>
-                    <Text color="textSecondary">{item.language}</Text>
+        const  { repository } = useRepository( {id: item.id})
+    
+        const openUrl = async ( url ) => {
+            await Linking.openURL(url)
+        }
+
+    return (
+        <View testID="repositoryItem">
+            <View style={styles.container}>
+                <View style= {styles.flexItemA}>
+                    <Image
+                        style={styles.imageSize}
+                        source={{
+                            uri: item.ownerAvatarUrl}}
+                    />
+                </View>
+                <View style= {styles.flexItemA}>
+                    <Text color="textPrimary" fontWeight="bold">{item.fullName}</Text>
+                    <Text color="textTertiary">{item.description}</Text>
+                    <View style= {theme.box}>
+                        <Text color="textSecondary">{item.language}</Text>
+                    </View>
                 </View>
             </View>
+            <View style={styles.container2}>
+                <View style= {styles.flexItemB}>
+                    <Text color="textPrimary" fontWeight="bold">{showStars}</Text>
+                    <Text color="textTertiary">Stars</Text>
+                </View>
+                <View style= {styles.flexItemB}>
+                    <Text color="textPrimary" fontWeight="bold"> {showForks}</Text>
+                    <Text color="textTertiary">Forks</Text>
+                </View>
+                <View style= {styles.flexItemB}>
+                    <Text color="textPrimary" fontWeight="bold">{showReviews}</Text>
+                    <Text color="textTertiary">Reviews</Text>
+                </View>
+                <View style= {styles.flexItemB}>
+                    <Text color="textPrimary" fontWeight="bold">{item.ratingAverage}</Text>
+                    <Text color="textTertiary">Rating</Text>
+                </View>
+            </View>
+            <View>
+            {showButton === "true" ? 
+                <View style= {styles.buttonContainer}>
+                <View style= {[theme.box, {padding: 10}, {borderRadius: 3}]}>
+                <Pressable onPress={() => openUrl (repository?.url)}>
+                <Text color="textSecondary" fontWeight="bold" style={{ textAlign: 'center'}}>Open in Github</Text>
+                </Pressable>
+                </View>
+                </View>
+            : null}     
+            </View>
         </View>
-        <View style={styles.container2}>
-            <View style= {styles.flexItemB}>
-                <Text color="textPrimary" fontWeight="bold">{showStars}</Text>
-                <Text color="textTertiary">Stars</Text>
-            </View>
-            <View style= {styles.flexItemB}>
-                <Text color="textPrimary" fontWeight="bold"> {showForks}</Text>
-                <Text color="textTertiary">Forks</Text>
-            </View>
-            <View style= {styles.flexItemB}>
-                <Text color="textPrimary" fontWeight="bold">{showReviews}</Text>
-                <Text color="textTertiary">Reviews</Text>
-            </View>
-            <View style= {styles.flexItemB}>
-                <Text color="textPrimary" fontWeight="bold">{item.ratingAverage}</Text>
-                <Text color="textTertiary">Rating</Text>
-            </View>
-        </View>
-        <View>
-        {showButton === "true" ? 
-            <View style= {styles.buttonContainer}>
-            <View style= {[theme.box, {padding: 10}, {borderRadius: 3}]}>
-            <Pressable onPress={() => openUrl (repository?.url)}>
-            <Text color="textSecondary" fontWeight="bold" style={{ textAlign: 'center'}}>Open in Github</Text>
-            </Pressable>
-            </View>
-            </View>
-        : null}     
-        </View>
-    </View>
-);
+    );
+}
 };
 
 export default RepositoryItem

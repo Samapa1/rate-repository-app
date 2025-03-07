@@ -40,7 +40,6 @@ const RepositoryList = () => {
 
   const [selectedCriteria, setSelectedCriteria] = useState("latest");
 
-  console.log(selectedCriteria)
   let orderVariables = {
     orderBy: "CREATED_AT", 
     orderDirection: "DESC"
