@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 import Review from './Review';
+import Register from './Register';
 
 import SingleRepository from './SingleRepository';
 
@@ -47,6 +48,11 @@ const Main = () => {
           <Route path="/review" element={
             <View  style={styles.flexItemB}>
             <Review/>
+          </View>
+          } />
+           <Route path="/register" element={
+          <View style={styles.flexItemB}>
+            <Register/>
           </View>
           } />
         <Route path="*" element={<Navigate to="/" replace />} />

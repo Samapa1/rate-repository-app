@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
     flexDirection: 'row',
     backgroundColor: theme.colors.tabBackground,
-    flexGrow: 0
+    flexGrow: 0,
+    flexShrink: 1
     // ...
   },
   flexItemA: {
@@ -28,28 +29,36 @@ const AppBar = () => {
   
   return (
     <View>
-      <View style={styles.container}>
-        <ScrollView horizontal>
-          <View style={styles.flexItemA}>
-            <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
-          </View>
-          {me ? 
+         {me ? 
             <View style={styles.container}>
+            <ScrollView horizontal>
+              <View style={styles.flexItemA}>
+                <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
+              </View>
               <View style={styles.flexItemA}>
                 <AppBarTab name= {'Create a review'} route={'/review'}></AppBarTab>
               </View>
               <View style={styles.flexItemA}>
-                <AppBarTab name= {'Log out'} route={'/signout'}></AppBarTab>
+                <AppBarTab name= {'Sign out'} route={'/signout'}></AppBarTab>
               </View>
+              </ScrollView>
              </View>
           : 
+          <View style={styles.container}>
+          <ScrollView horizontal>
             <View style={styles.flexItemA}>
-              <AppBarTab name= {'Log in'} route={'/signin'}></AppBarTab>
+              <AppBarTab name= {'Repositories'} route={'/'}></AppBarTab>
             </View>
+            <View style={styles.flexItemA}>
+              <AppBarTab name= {'Sign in'} route={'/signin'}></AppBarTab>
+            </View>
+             <View style={styles.flexItemA}>
+              <AppBarTab name= {'Sign up'} route={'/register'}></AppBarTab>
+            </View>
+            </ScrollView>
+           </View>
           }
-        </ScrollView>
       </View>
-    </View>
   )
   
 };
