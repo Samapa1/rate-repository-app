@@ -1,6 +1,9 @@
-import { FlatList, View, StyleSheet, Pressable, Text } from 'react-native';
+import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import { useNavigate } from "react-router";
 import { useState } from 'react';
+import * as React from 'react';
+import { Searchbar } from 'react-native-paper';
+import { useDebounce } from 'use-debounce';
 import useRepositories from '../hooks/useRepositories';
 import RepositoryItem from './RepositoryItem';
 
@@ -19,48 +22,59 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const ListHeader = ( { selectedCriteria, setSelectedCriteria}) => {
+const ListHeader = ( { selectedCriteria, setSelectedCriteria, keyWord, setKeyword}) => {
   return (
-    <View>
-    <Picker style={styles.header}
-      selectedValue={selectedCriteria}
-      onValueChange={(itemValue, itemIndex) =>
-        setSelectedCriteria(itemValue)
-      }>
-      <Picker.Item label="Latest repositories" value="latest" />
-      <Picker.Item label="Highest rated repositories" value="highest" />
-      <Picker.Item label="Lowest rated repositories" value="lowest" />
-    </Picker>
+    <View style={{backgroundColor: '#dedfe0'}}>
+      <Searchbar  
+        style= {{backgroundColor: 'white'}}
+        placeholder="Search"
+        onChangeText={setKeyword}
+        value={keyWord}
+      />
+      <Picker style={styles.header}
+        selectedValue={selectedCriteria}
+        onValueChange={(itemValue, itemIndex) =>
+          setSelectedCriteria(itemValue)
+        }>
+        <Picker.Item label="Latest repositories" value="latest" />
+        <Picker.Item label="Highest rated repositories" value="highest" />
+        <Picker.Item label="Lowest rated repositories" value="lowest" />
+      </Picker>
     </View>
     )
 }
 
-
 const RepositoryList = () => {
 
   const [selectedCriteria, setSelectedCriteria] = useState("latest");
+  const [keyWord, setKeyword] = React.useState('')
+  const [debounced] = useDebounce(keyWord, 500);
 
   let orderVariables = {
     orderBy: "CREATED_AT", 
-    orderDirection: "DESC"
+    orderDirection: "DESC",
+    searchKeyword: debounced,
   }
 
   if (selectedCriteria === "latest") {
     orderVariables = {
       orderBy: "CREATED_AT", 
-      orderDirection: "DESC"
+      orderDirection: "DESC",
+      searchKeyword: debounced
     }
   }
   else if (selectedCriteria === "highest") {
     orderVariables = {
       orderBy: "RATING_AVERAGE", 
-      orderDirection: "DESC"
+      orderDirection: "DESC",
+      searchKeyword: debounced
     }
   }
   else if (selectedCriteria === "lowest") {
     orderVariables = {
       orderBy: "RATING_AVERAGE", 
-      orderDirection: "ASC"
+      orderDirection: "ASC",
+      searchKeyword: debounced
     }
   }
 
@@ -78,7 +92,13 @@ const RepositoryList = () => {
   return (
     <View>
     <FlatList
-      ListHeaderComponent={<ListHeader selectedCriteria= {selectedCriteria} setSelectedCriteria={setSelectedCriteria}/>}
+      ListHeaderComponent=
+        {<ListHeader 
+          selectedCriteria= {selectedCriteria} 
+          setSelectedCriteria={setSelectedCriteria}
+          keyWord={keyWord}
+          setKeyword={setKeyword}
+        />}
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({item}) => (
@@ -93,4 +113,5 @@ const RepositoryList = () => {
 
 
 export default RepositoryList;
+
 
