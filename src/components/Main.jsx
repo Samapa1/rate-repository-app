@@ -7,6 +7,7 @@ import SignIn from './SignIn';
 import SignOut from './SignOut';
 import Review from './Review';
 import Register from './Register';
+import MyReviews from './MyReviews';
 
 import SingleRepository from './SingleRepository';
 
@@ -16,7 +17,8 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   flexItemB: {
-    flexGrow: 0,
+    // flexGrow: 0,
+    flex: 1
   },
 });
 
@@ -47,13 +49,18 @@ const Main = () => {
           } />
           <Route path="/review" element={
             <View  style={styles.flexItemB}>
-            <Review/>
-          </View>
+              <Review/>
+            </View>
           } />
            <Route path="/register" element={
-          <View style={styles.flexItemB}>
-            <Register/>
-          </View>
+            <View style={styles.flexItemB}>
+              <Register/>
+            </View>
+          } />
+          <Route path="/myreviews" element={
+            <View style={styles.flexItemB}>
+              <MyReviews/>
+            </View>
           } />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

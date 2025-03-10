@@ -3,8 +3,9 @@ import {useParams} from 'react-router-native'
 import useRepositories from '../hooks/useRepositories';
 import RepositoryItem from './RepositoryItem';
 import useRepository from '../hooks/useRepository';
-import Text from './Text';
+// import Text from './Text';
 
+import ReviewItem from './ReviewItem';
 
 const styles = StyleSheet.create({
     container: {
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       gap: 10,
       flexGrow: 1,
-      flexShrink: 1,
+      // flexShrink: 0,
   },
     container2: {
       margin: 20,
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
       flexShrink: 1,
   },
     flexItemA: {
+      // flex: 1,
       flexGrow: 0,
       flexShrink: 1,
       alignItems: 'flex-start',
@@ -63,32 +65,6 @@ const RepositoryInfo = ( {repository }) => {
             <RepositoryItem item={repository} showButton= {"true"}/>
         </View>
     )
-};
-
-const ReviewItem = ({ review }) => {
-
-  const formatDate = (createdAt) => {
-    const formatteddate = new Date(createdAt);
-    return formatteddate.toLocaleDateString();
-  };
-
-  const reviewDate = formatDate(review.createdAt)
-
-
-  return (
-    <View style={styles.container}>
-      <View style= {styles.flexItemA}>
-        <View style={styles.roundContainer}>
-          <Text color="textQuaternary" fontWeight="bold">{review.rating}</Text>
-        </View>
-      </View>
-      <View style= {styles.flexItemA}>
-      <Text color="textPrimary" fontWeight="bold">{review.user.username}</Text>
-      <Text color="textTertiary">{reviewDate}</Text>
-      <Text color="textPrimary">{review.text}</Text>
-      </View>
-    </View>
-)
 };
 
 const SingleRepository = () => {

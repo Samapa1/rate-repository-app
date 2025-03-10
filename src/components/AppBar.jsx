@@ -39,6 +39,9 @@ const AppBar = () => {
                 <AppBarTab name= {'Create a review'} route={'/review'}></AppBarTab>
               </View>
               <View style={styles.flexItemA}>
+                <AppBarTab name= {'My reviews'} route={'/myReviews'}></AppBarTab>
+              </View>
+              <View style={styles.flexItemA}>
                 <AppBarTab name= {'Sign out'} route={'/signout'}></AppBarTab>
               </View>
               </ScrollView>

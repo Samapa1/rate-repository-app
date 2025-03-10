@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#dedfe0',
     height: 50,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    borderColor: 'transparent'
   }
 });
 
@@ -24,12 +28,17 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const ListHeader = ( { selectedCriteria, setSelectedCriteria, keyWord, setKeyword}) => {
   return (
-    <View style={{backgroundColor: '#dedfe0'}}>
+    <View style={[{backgroundColor: '#dedfe0'}, {borderBottomColor: 'transparent'}]}>
       <Searchbar  
-        style= {{backgroundColor: 'white'}}
+        style= {{
+          backgroundColor: 'white', 
+          margin: 10,
+          borderBottomColor: 'transparent'
+        }}
         placeholder="Search"
         onChangeText={setKeyword}
         value={keyWord}
+        mode= 'view'
       />
       <Picker style={styles.header}
         selectedValue={selectedCriteria}
