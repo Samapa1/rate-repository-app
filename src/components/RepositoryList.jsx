@@ -95,6 +95,7 @@ const RepositoryList = () => {
     : [];
 
   const handleNavigate = (item) => {
+    console.log(item.id)
     navigate(`/${item.id}`)
   }
 

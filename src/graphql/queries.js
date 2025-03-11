@@ -44,15 +44,6 @@ export const GET_REPOSITORY = gql`
   }
 `;
   
-// export const GET_ME= gql`
-//   query {
-//     me {
-//       id
-//       username
-//     }
-// }
-// `;
-
 export const GET_ME = gql`
   query getCurrentUser($includeReviews: Boolean = false) {
     me {
@@ -65,6 +56,7 @@ export const GET_ME = gql`
             text
             rating
             createdAt
+            repositoryId
             user {
               id
               username

@@ -27,7 +27,11 @@ const theme = {
     box: {
         backgroundColor: '#0366d6',
         padding: 5
-    }
+    },
+    redBox: {
+      backgroundColor: '#d60935',
+      padding: 5
+    },
   };
   
   export default theme;
