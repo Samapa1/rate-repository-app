@@ -2,17 +2,6 @@ import { View, StyleSheet  } from 'react-native';
 import Text from './Text';
 
 const styles = StyleSheet.create({
-    container: {
-      flexGrow: 1,
-      flexShrink: 1,
-    },
-    flexItemB: {
-      flexGrow: 0,
-    },
-    separator: {
-      height: 10,
-      backgroundColor: '#dedfe0',
-    },
     roundContainer: {
       display: 'flex',
       borderColor: '#0366d6',
@@ -30,20 +19,8 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       gap: 10,
       flexGrow: 1,
-      // flexShrink: 0,
-  },
-    container2: {
-      margin: 20,
-      paddingLeft: 20,
-      paddingRight: 20,
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
-      gap: 30,
-      flexGrow: 1,
-      flexShrink: 1,
-  },
+    },
     flexItemA: {
-      // flex: 1,
       flexGrow: 0,
       flexShrink: 1,
       alignItems: 'flex-start',
