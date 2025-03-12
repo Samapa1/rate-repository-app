@@ -17,7 +17,6 @@ const MyReviews = () => {
     const reviewNodes = me
     ? me.reviews.edges.map(edge => edge.node)
     : [];
-    console.log(reviewNodes)
     
     const ItemSeparator = () => <View style={styles.separator} />;
       
