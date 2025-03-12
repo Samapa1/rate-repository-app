@@ -33,7 +33,7 @@ const Main = () => {
           </View>
           } />
         <Route path="/:id" element={ 
-            <View>
+            <View style={{ flexGrow: 1 }}>
             <SingleRepository/>
             </View>
           } />

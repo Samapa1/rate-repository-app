@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     },
   });
 
+const onEndReach = () => {
+    console.log('You have reached the end of the list');
+};
+
 const MyReviews = () => {
     const { me } = useUserData({
         includeReviews: true
@@ -27,6 +31,7 @@ const MyReviews = () => {
             ItemSeparatorComponent={ItemSeparator}
             renderItem={({ item }) => <ReviewItem review={item} showRepo={true}/>}
             keyExtractor={({ id }) => id}
+            onEndReach={onEndReach}
             // ...
         />
         </View>

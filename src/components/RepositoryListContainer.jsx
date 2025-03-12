@@ -25,10 +25,16 @@ export const RepositoryListContainer = ({ repositories }) => {
   };
   
   const RepositoryList = () => {
-    const { repositories } = useRepositories({
+    const variables = {
       orderBy: "CREATED_AT", 
       orderDirection: "DESC"
-    });
+    }
+    const { repositories } = useRepositories(variables);
+  
+    // const { repositories } = useRepositories({
+    //   orderBy: "CREATED_AT", 
+    //   orderDirection: "DESC"
+    // });
   
     return <RepositoryListContainer repositories={repositories} />;
   };

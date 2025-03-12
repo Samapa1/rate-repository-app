@@ -40,13 +40,23 @@ const SingleRepository = () => {
 
   const repoToShow = repositoryNodes.find(repo => repo.id === id)
 
-  const  { repository } = useRepository( {id: itemId})
+  const variables= {
+    id: itemId,
+    first: 3
+  }
+  
+  const  { repository, fetchMore  } = useRepository( variables )
 
   const reviewNodes = repository
   ? repository.reviews.edges.map(edge => edge.node)
   : [];
 
   const ItemSeparator = () => <View style={styles.separator} />;
+
+  const onEndReach = () => {
+    console.log('You have reached the end of the list');
+    fetchMore();
+  };
   
   return (
     <FlatList
@@ -55,6 +65,9 @@ const SingleRepository = () => {
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <RepositoryInfo repository={repoToShow}/>}
+      ListFooterComponent={<View style={{height: 100}}/>}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
     />
   );
 };

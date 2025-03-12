@@ -87,7 +87,11 @@ const RepositoryList = () => {
     }
   }
 
-  const { repositories } = useRepositories( orderVariables);
+  const { repositories,  fetchMore  } = useRepositories({
+    first: 3,
+    ...orderVariables
+  });
+
   let navigate = useNavigate();
 
   const repositoryNodes = repositories
@@ -98,6 +102,11 @@ const RepositoryList = () => {
     console.log(item.id)
     navigate(`/${item.id}`)
   }
+
+  const onEndReach = () => {
+    console.log('You have reached the end of the list')
+    fetchMore();
+  };
 
   return (
     <View>
@@ -116,6 +125,8 @@ const RepositoryList = () => {
           <RepositoryItem item={item} showButton={"false"}/>
         </Pressable>
       )}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
     />
     </View>
   );
