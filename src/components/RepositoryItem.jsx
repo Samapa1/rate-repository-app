@@ -1,8 +1,8 @@
-import { View, Image, StyleSheet, Pressable } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import * as Linking from 'expo-linking';
 import Text from './Text';
 import theme from '../theme';
-import useRepository from '../hooks/useRepository';
+import RepositoryLink from './RepositoryLink';
 
 const RepositoryItem = ({ item, showButton }) => {
     const styles = StyleSheet.create({
@@ -68,12 +68,6 @@ const RepositoryItem = ({ item, showButton }) => {
         const reviews = item.reviewCount
         const showReviews = defineCounts(reviews)
 
-        //const  { repository } = useRepository( {id: item.id})
-    
-        const openUrl = async ( url ) => {
-            await Linking.openURL(url)
-        }
-
     return (
         <View testID="repositoryItem">
             <View style={styles.container}>
@@ -112,13 +106,7 @@ const RepositoryItem = ({ item, showButton }) => {
             </View>
             <View>
             {showButton === "true" ? 
-                <View style= {styles.buttonContainer}>
-                <View style= {[theme.box, {padding: 10}, {borderRadius: 3}]}>
-                <Pressable onPress={() => openUrl (repository?.url)}>
-                <Text color="textSecondary" fontWeight="bold" style={{ textAlign: 'center'}}>Open in Github</Text>
-                </Pressable>
-                </View>
-                </View>
+                <RepositoryLink item= {item}/>
             : null}     
             </View>
         </View>
