@@ -26,11 +26,13 @@ const theme = {
     },
     box: {
         backgroundColor: '#0366d6',
-        padding: 5
+        padding: 5,
+        borderRadius: 3
     },
     redBox: {
       backgroundColor: '#d60935',
-      padding: 5
+      padding: 5,
+      borderRadius: 3
     },
   };
   

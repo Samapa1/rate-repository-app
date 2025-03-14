@@ -5,7 +5,6 @@ const SignOut = () => {
     let navigate = useNavigate();
 
     try {
-        console.log("SignOut component")
         useSignOut()
         navigate("/")
     } catch (e) {

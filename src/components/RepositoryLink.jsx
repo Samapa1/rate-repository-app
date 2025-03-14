@@ -24,7 +24,7 @@ const RepositoryLink = ({item}) => {
     
     return (
         <View style= {styles.buttonContainer}>
-            <View style= {[theme.box, {padding: 10}, {borderRadius: 3}]}>
+            <View style= {[theme.box, {padding: 10}]}>
                 <Pressable onPress={() => openUrl (repository?.url)}>
                     <Text color="textSecondary" fontWeight="bold" style={{ textAlign: 'center'}}>Open in Github</Text>
                 </Pressable>

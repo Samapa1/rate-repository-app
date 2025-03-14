@@ -140,7 +140,6 @@ const ReviewForm = ({ onSubmit }) => {
                 </View>
             </View>
         )
-    
 }
 
 const Review = () => {
