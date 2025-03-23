@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+// import { Text, View } from 'react-native';
 import { screen, render, within } from '@testing-library/react-native';
 import { RepositoryListContainer } from '../../components/RepositoryListContainer';
 
