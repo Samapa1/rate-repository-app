@@ -42,7 +42,7 @@ const ListHeader = ( { selectedCriteria, setSelectedCriteria, keyWord, setKeywor
       />
       <Picker style={styles.header}
         selectedValue={selectedCriteria}
-        onValueChange={(itemValue, itemIndex) =>
+        onValueChange={(itemValue) =>
           setSelectedCriteria(itemValue)
         }>
         <Picker.Item label="Latest repositories" value="latest" />

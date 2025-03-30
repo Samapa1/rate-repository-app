@@ -1,5 +1,4 @@
 import { View, Image, StyleSheet } from 'react-native';
-import * as Linking from 'expo-linking';
 import Text from './Text';
 import theme from '../theme';
 import RepositoryLink from './RepositoryLink';

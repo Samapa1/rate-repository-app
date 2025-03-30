@@ -54,21 +54,21 @@ describe('RepositoryList', () => {
         const repositoryItems = screen.getAllByTestId('repositoryItem');
         const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
      
-        within(firstRepositoryItem).getByText('jaredpalmer/formik');
-        within(firstRepositoryItem).getByText('Build forms in React, without the tears');
-        within(firstRepositoryItem).getByText('TypeScript');
-        within(firstRepositoryItem).getByText('1.6k');
-        within(firstRepositoryItem).getByText('21.9k');
-        within(firstRepositoryItem).getByText('88');
-        within(firstRepositoryItem).getByText('3');
+        expect(within(firstRepositoryItem).getByText('jaredpalmer/formik')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('Build forms in React, without the tears')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('TypeScript')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('1.6k')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('21.9k')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('88')).toBeTruthy();
+        expect(within(firstRepositoryItem).getByText('3')).toBeTruthy();
 
-        within(secondRepositoryItem).getByText('async-library/react-async');
-        within(secondRepositoryItem).getByText('Flexible promise-based React data loader');
-        within(secondRepositoryItem).getByText('JavaScript');
-        within(secondRepositoryItem).getByText('69');
-        within(secondRepositoryItem).getByText('1.8k');
-        within(secondRepositoryItem).getByText('72');
-        within(secondRepositoryItem).getByText('3');
+        expect(within(secondRepositoryItem).getByText('async-library/react-async')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('Flexible promise-based React data loader')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('JavaScript')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('69')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('1.8k')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('72')).toBeTruthy();
+        expect(within(secondRepositoryItem).getByText('3')).toBeTruthy();
   
       });
     });

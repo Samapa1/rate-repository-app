@@ -140,18 +140,16 @@ const Register = () => {
             const  { data2 } = await signIn( { username, password })
             console.log(data2)
             navigate("/")
-            // navigate(`/${data.createReview.repositoryId}`)
-           
 
         } catch (e) {
           console.log(e);
         }
 
-      };
+    };
 
-      return (
+    return (
         <RegisterForm onSubmit= {onSubmit}/>
-      )
+    )
     
 }
 

@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native';
 
 import RepositoryList from './RepositoryList';
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   flexItemB: {
-    // flexGrow: 0,
     flex: 1
   },
 });
